@@ -19,28 +19,29 @@
         <h1>Fincob</h1>
       </div>
       <div class="login-box">
-        <form class="login-form" action="index.html">
+        <form class="login-form" method="post" action="/login">
+          @csrf
           <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Entrar</h3>
           <div class="form-group">
             <label class="control-label">E-MAIL</label>
-            <input class="form-control" type="text" placeholder="E-mail" autofocus>
+            <input class="form-control" type="text" name="login" placeholder="E-mail" autofocus>
           </div>
           <div class="form-group">
             <label class="control-label">SENHA</label>
-            <input class="form-control" type="password" placeholder="Senha">
+            <input class="form-control" type="password" name="senha" placeholder="Senha">
           </div>
           <div class="form-group">
             <div class="utility">
               <div class="animated-checkbox">
                 <label>
-                  <input type="checkbox"><span class="label-text">Lembrar</span>
+                  <input type="checkbox" name="lembrar"><span class="label-text">Lembrar</span>
                 </label>
               </div>
               <p class="semibold-text mb-2"><a href="#" data-toggle="flip">Recuperar Senha ?</a></p>
             </div>
           </div>
           <div class="form-group btn-container">
-            <button class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>Entrar</button>
+            <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-sign-in fa-lg fa-fw"></i>Entrar</button>
           </div>
         </form>
         <form class="forget-form" action="index.html">
@@ -50,7 +51,7 @@
             <input class="form-control" type="text" placeholder="E-mail">
           </div>
           <div class="form-group btn-container">
-            <button class="btn btn-primary btn-block"><i class="fa fa-unlock fa-lg fa-fw"></i>RECUPERAR</button>
+            <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-unlock fa-lg fa-fw"></i>RECUPERAR</button>
           </div>
           <div class="form-group mt-3">
             <p class="semibold-text mb-0"><a href="#" data-toggle="flip"><i class="fa fa-angle-left fa-fw"></i> Voltar ao Login</a></p>

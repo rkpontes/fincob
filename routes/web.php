@@ -11,7 +11,15 @@
 |
 */
 
-Route::get('/', 'UsuarioController@index');
+Route::get('/', 'LoginController@form');
 
+Route::post('/login', 'LoginController@login');
 
-Route::get('/painel', 'UsuarioController@painel');
+Route::group(['middleware' => ['auth']], function(){
+
+    Route::get('/logout', function(){
+        Auth::logout();
+        return redirect()->action('LoginController@form');
+    })->name('logout');
+
+});

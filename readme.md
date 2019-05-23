@@ -1,5 +1,5 @@
 
-## Projetp Fincob
+## Projeto Fincob
 
 Este repositório contém o projeto Fincob : Controle financeiro. 
 Nosso objetivo é criar um sistema Laravel com um template bonito (adaptando um template pronto da web) e criar um app (Ionic) integrado ao sistema via API REST.

@@ -7,13 +7,7 @@ use Illuminate\Http\Request;
 class UsuarioController extends Controller
 {
     
-    public function index(){
-        return view('login');
-    }
-
-    public function painel(){
-        return view('painel.index');
-    }
+    public function index(){}
 
     public function show(){}
 
@@ -25,6 +19,6 @@ class UsuarioController extends Controller
     
     public function update(){}
 
-    public function delete(){}
+    public function destroy(){}
 
 }
