@@ -33,7 +33,20 @@ class LoginController extends Controller
         }
         
         return redirect()->action('LoginController@form');
-        
+    }
+
+    public function create(){
+        return view('cadastro');
+    }
+
+    public function store(Request $request){
+        $usuario = new User;
+        $usuario->email = $request->login;
+        $usuario->password = bcrypt($request->senha);
+        $usuario->ativo = 1;
+        $usuario->save();
+
+        return redirect()->action('LoginController@form');
 
     }
 

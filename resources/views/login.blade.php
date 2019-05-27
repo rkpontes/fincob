@@ -42,6 +42,7 @@
           </div>
           <div class="form-group btn-container">
             <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-sign-in fa-lg fa-fw"></i>Entrar</button>
+            <p class="semibold-text login-head"><a href="/novo">Novo Cadastro</a></p>
           </div>
         </form>
         <form class="forget-form" action="index.html">

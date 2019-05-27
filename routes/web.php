@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'LoginController@form')->name('login');
+Route::get('/novo', 'LoginController@create');
+Route::post('/novo', 'LoginController@store');
 
 Route::post('/login', 'LoginController@login');
 

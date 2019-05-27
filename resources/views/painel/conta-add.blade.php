@@ -31,12 +31,21 @@
               <label class="form-check-label">
                 <input class="form-check-input" type="radio" name="tipo[]" value="d" @if(!empty($conta) && $conta->tipo == 'd') checked @endif>Despesa
               </label>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="tipo[]" value="t" @if(!empty($conta) && $conta->tipo == 't') checked @endif>Transferência
+              </label>
             </div>
           </div>
           
           <div class="form-group">
             <label class="control-label">Título</label>
             <input class="form-control" type="text" name="titulo" value="{{$conta->titulo ?? ''}}" placeholder="Descreva a conta...">
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Vencimento</label>
+            <input class="form-control" type="text" id="demoDate" name="vencimento" value="{{$conta->vencimento ?? ''}}" placeholder="DD/MM/YYYY">
           </div>
           
           <div class="form-group">
@@ -49,6 +58,24 @@
             <select class="form-control" name="parcela" @if(!empty($conta)) disabled @endif>
               @foreach(range(1, 12) as $parcela)
               <option value="{{$parcela}}">{{$parcela}}</option>
+              @endforeach
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Categoria</label>
+            <select class="form-control" name="categoria">
+              @foreach($categorias as $categoria)
+              <option value="{{$categoria->id}}" @if(!empty($conta) && $conta->categoria_fk == $categoria->id) selected @endif>{{$categoria->nome}}</option>
+              @endforeach
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Pasta</label>
+            <select class="form-control" name="pasta">
+              @foreach($pastas as $pasta)
+              <option value="{{$pasta->id}}" @if(!empty($conta) && $conta->pasta_fk == $pasta->id) selected @endif>{{$pasta->nome}}</option>
               @endforeach
             </select>
           </div>
@@ -78,10 +105,12 @@
               <th>#</th>
               <th>Tipo</th>
               <th>Titulo</th>
+              <th>Categoria</th>
+              <th>Pasta</th>
               <th>Valor (R$)</th>
-              <th>Efetivado?</th>
               <th>Parcela</th>
-              <th>Criado</th>
+              <th>Vencimento</th>
+              <th>Efetivado?</th>
               <th>Ação</th>
             </tr>
           </thead>
@@ -91,10 +120,12 @@
               <td>{{$conta->id}}</td>
               <td>{{strtoupper($conta->tipo)}}</td>
               <td>{{$conta->titulo}}</td>
+              <td>{{$conta->categoria->nome}}</td>
+              <td>{{$conta->pasta->nome}}</td>
               <td>{{number_format($conta->valor, 2, ',', '')}}</td>
-              <td>{{$conta->efetivado ? 'Sim' : 'Não'}}</td>
               <td>{{$conta->parcela}}</td>
-              <td>{{date('d/m/Y H:i', strtotime($conta->data_conta))}}</td>
+              <td>{{date('d/m/Y', strtotime($conta->vencimento))}}</td>
+              <td>{{$conta->efetivado ? 'Sim' : 'Não'}}</td>
               <td>
                 <a href="/conta/edit/{{$conta->id}}">Alterar</a> | 
                 <a href='/conta/del/{{$conta->id}}' onclick=" return confirm('Deseja mesmo apagar a conta selecionada?')">Remover</a>

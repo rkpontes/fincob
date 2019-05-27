@@ -134,6 +134,7 @@
     <script src="{{url('/')}}/js/main.js"></script>
     <!-- The javascript plugin to display page loading on top-->
     <script src="{{url('/')}}/js/plugins/pace.min.js"></script>
+    <script type="text/javascript" src="{{url('/')}}/js/plugins/bootstrap-datepicker.min.js"></script>
     <!-- Page specific javascripts-->
     <!-- Google analytics script-->
     <script type="text/javascript">
@@ -145,6 +146,11 @@
       	ga('create', 'UA-72504830-1', 'auto');
       	ga('send', 'pageview');
       }
+      $('#demoDate').datepicker({
+      	format: "dd/mm/yyyy",
+      	autoclose: true,
+      	todayHighlight: true
+      });
     </script>
   </body>
 </html>
