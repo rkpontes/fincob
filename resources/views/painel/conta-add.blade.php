@@ -15,37 +15,38 @@
 <div class="row">
   <div class="col-md-12">
     <div class="tile">
-      <h3 class="tile-title">Formulário de Cadastro</h3>
+      <h3 class="tile-title">Formulário de @if(empty($conta)) Cadastro @endif @if(!empty($conta)) Alteração @endif</h3>
       <div class="tile-body">
         <form method="post" action="{{action('ContaController@store')}}">
           @csrf
           
+          <input type="hidden" name="id" value="{{$conta->id ?? ''}}" />
           <div class="form-group">
             <label class="control-label">Tipo da Conta</label>
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="tipo[]" value="r" checked>Receita
+                <input class="form-check-input" type="radio" name="tipo[]" value="r" @if(empty($conta)) checked @endif @if(!empty($conta) && $conta->tipo == 'r') checked @endif>Receita
               </label>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="tipo[]" value="d">Despesa
+                <input class="form-check-input" type="radio" name="tipo[]" value="d" @if(!empty($conta) && $conta->tipo == 'd') checked @endif>Despesa
               </label>
             </div>
           </div>
           
           <div class="form-group">
             <label class="control-label">Título</label>
-            <input class="form-control" type="text" name="titulo" placeholder="Descreva a conta...">
+            <input class="form-control" type="text" name="titulo" value="{{$conta->titulo ?? ''}}" placeholder="Descreva a conta...">
           </div>
           
           <div class="form-group">
             <label class="control-label">Valor</label>
-            <input class="form-control" type="number" name="valor" placeholder="0,00">
+            <input class="form-control" type="number" name="valor" value="{{$conta->valor ?? ''}}" placeholder="0,00">
           </div>
 
           <div class="form-group">
             <label class="control-label">Parcelas</label>
-            <select class="form-control" name="parcela">
+            <select class="form-control" name="parcela" @if(!empty($conta)) disabled @endif>
               @foreach(range(1, 12) as $parcela)
               <option value="{{$parcela}}">{{$parcela}}</option>
               @endforeach
@@ -55,12 +56,12 @@
           <div class="form-group">
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" name="efetivado">Conta efetivada?
+                <input class="form-check-input" type="checkbox" name="efetivado" @if(!empty($conta) && $conta->efetivado == true) checked @endif >Conta efetivada?
               </label>
             </div>
           </div>
           <hr />
-          <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Cadastrar</button>
+          <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>@if(empty($conta)) Cadastrar @endif @if(!empty($conta)) Alterar @endif</button>
         </form>
       </div>
     </div>
@@ -95,7 +96,8 @@
               <td>{{$conta->parcela}}</td>
               <td>{{date('d/m/Y H:i', strtotime($conta->data_conta))}}</td>
               <td>
-                <a href="#">Alterar</a> | <a href='#' onclick=" return confirm('Deseja mesmo apagar o usuário selecionado?')">Remover</a>
+                <a href="/conta/edit/{{$conta->id}}">Alterar</a> | 
+                <a href='/conta/del/{{$conta->id}}' onclick=" return confirm('Deseja mesmo apagar a conta selecionada?')">Remover</a>
               </td>
             </tr>
             @endforeach

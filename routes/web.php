@@ -30,5 +30,7 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::get('/conta/add', 'ContaController@create')->name('conta-add');
     Route::post('/conta/add', 'ContaController@store');
+    Route::get('/conta/edit/{id}', 'ContaController@edit');
+    Route::get('/conta/del/{id}', 'ContaController@destroy');
 
 });
