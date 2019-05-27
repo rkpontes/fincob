@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'LoginController@form');
+Route::get('/', 'LoginController@form')->name('login');
 
 Route::post('/login', 'LoginController@login');
 
@@ -21,5 +21,14 @@ Route::group(['middleware' => ['auth']], function(){
         Auth::logout();
         return redirect()->action('LoginController@form');
     })->name('logout');
+
+    Route::get('/usuario/add', 'UsuarioController@create')->name('usuario-add');
+    Route::post('/usuario/add', 'UsuarioController@store');
+    Route::get('/usuario/edit/{id}', 'UsuarioController@edit');
+    Route::get('/usuario/del/{id}', 'UsuarioController@destroy');
+
+
+    Route::get('/conta/add', 'ContaController@create')->name('conta-add');
+    Route::post('/conta/add', 'ContaController@store');
 
 });

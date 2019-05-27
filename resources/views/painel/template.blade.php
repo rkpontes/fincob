@@ -18,7 +18,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="{{url('/')}}/css/main.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
@@ -77,7 +77,7 @@
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
             <li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Perfil</a></li>
-            <li><a class="dropdown-item" href="{{url('logout')}}"><i class="fa fa-sign-out fa-lg"></i> Sair</a></li>
+            <li><a class="dropdown-item" href="{{route('logout')}}"><i class="fa fa-sign-out fa-lg"></i> Sair</a></li>
           </ul>
         </li>
       </ul>
@@ -102,8 +102,8 @@
           </a>
 
           <ul class="treeview-menu">
-            <li><a class="treeview-item active" href="#"><i class="icon fa fa-circle-o"></i> Usuário</a></li>
-            <li><a class="treeview-item active" href="#"><i class="icon fa fa-circle-o"></i> Conta</a></li>
+            <li><a class="treeview-item active" href="{{route('usuario-add')}}"><i class="icon fa fa-circle-o"></i> Usuário</a></li>
+            <li><a class="treeview-item active" href="{{route('conta-add')}}"><i class="icon fa fa-circle-o"></i> Conta</a></li>
           </ul>
 
         </li>
@@ -128,12 +128,12 @@
         @yield('content')
     </main>
     <!-- Essential javascripts for application to work-->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="{{url('/')}}/js/jquery-3.2.1.min.js"></script>
+    <script src="{{url('/')}}/js/popper.min.js"></script>
+    <script src="{{url('/')}}/js/bootstrap.min.js"></script>
+    <script src="{{url('/')}}/js/main.js"></script>
     <!-- The javascript plugin to display page loading on top-->
-    <script src="js/plugins/pace.min.js"></script>
+    <script src="{{url('/')}}/js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
     <!-- Google analytics script-->
     <script type="text/javascript">

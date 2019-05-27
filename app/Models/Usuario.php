@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Wed, 22 May 2019 00:50:00 +0000.
+ * Date: Sat, 25 May 2019 16:50:15 +0000.
  */
 
 namespace App\Models;
@@ -15,6 +15,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property int $id
  * @property string $email
  * @property string $password
+ * @property string $remember_token
  * @property int $ativo
  * 
  * @property \Illuminate\Database\Eloquent\Collection $contas
@@ -30,12 +31,14 @@ class Usuario extends Eloquent
 	];
 
 	protected $hidden = [
-		'password'
+		'password',
+		'remember_token'
 	];
 
 	protected $fillable = [
 		'email',
 		'password',
+		'remember_token',
 		'ativo'
 	];
 

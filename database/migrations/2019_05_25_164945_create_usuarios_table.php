@@ -15,9 +15,10 @@ class CreateUsuariosTable extends Migration {
 		Schema::create('usuarios', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-			$table->string('email', 100)->nullable();
-			$table->string('password', 45)->nullable();
-			$table->boolean('ativo')->nullable();
+			$table->string('email', 100)->unique('email_UNIQUE');
+			$table->string('password', 100);
+			$table->string('remember_token', 100)->nullable();
+			$table->boolean('ativo');
 		});
 	}
 

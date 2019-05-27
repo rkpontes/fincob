@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Wed, 22 May 2019 00:50:00 +0000.
+ * Date: Sat, 25 May 2019 16:50:15 +0000.
  */
 
 namespace App\Models;
@@ -17,6 +17,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property string $titulo
  * @property float $valor
  * @property int $efetivado
+ * @property int $parcela
  * @property \Carbon\Carbon $data_conta
  * @property \Carbon\Carbon $data_efetivacao
  * 
@@ -30,7 +31,8 @@ class Conta extends Eloquent
 
 	protected $casts = [
 		'valor' => 'float',
-		'efetivado' => 'int'
+		'efetivado' => 'int',
+		'parcela' => 'int'
 	];
 
 	protected $dates = [
@@ -43,6 +45,7 @@ class Conta extends Eloquent
 		'titulo',
 		'valor',
 		'efetivado',
+		'parcela',
 		'data_conta',
 		'data_efetivacao'
 	];

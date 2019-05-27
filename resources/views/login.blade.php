@@ -24,11 +24,11 @@
           <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Entrar</h3>
           <div class="form-group">
             <label class="control-label">E-MAIL</label>
-            <input class="form-control" type="text" name="login" placeholder="E-mail" autofocus>
+            <input class="form-control" type="email" name="login" placeholder="E-mail" autofocus required>
           </div>
           <div class="form-group">
             <label class="control-label">SENHA</label>
-            <input class="form-control" type="password" name="senha" placeholder="Senha">
+            <input class="form-control" type="password" name="senha" placeholder="Senha" required>
           </div>
           <div class="form-group">
             <div class="utility">

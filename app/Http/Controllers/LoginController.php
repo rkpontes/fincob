@@ -27,7 +27,6 @@ class LoginController extends Controller
         $lembrar = empty($request->lembrar) ? false : true;
 
         $usuario = User::where('email', $request->login)->first();
-
             
         if($usuario && Hash::check($request->senha, $usuario->password)){
             Auth::loginUsingId($usuario->id, $lembrar);
