@@ -36,3 +36,14 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/conta/del/{id}', 'ContaController@destroy');
 
 });
+
+Route::group(array('prefix' => 'api'), function(){
+
+  Route::get('/', function () {
+      return response()->json(['message' => 'Fincob API', 'status' => 'Connected']);;
+  });
+
+  
+  
+
+});
