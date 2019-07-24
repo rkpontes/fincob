@@ -177,6 +177,7 @@ return [
         Way\Generators\GeneratorsServiceProvider::class,
         Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
         Reliese\Coders\CodersServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
     ],
 
     /*

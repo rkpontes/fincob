@@ -55,11 +55,12 @@
               <td>{{$usuario->id}}</td>
               <td>{{$usuario->email}}</td>
               <td>
-                <a href="/usuario/edit/{{$usuario->id}}">Alterar</a> | <a href='/usuario/del/{{$usuario->id}}' onclick=" return confirm('Deseja mesmo apagar o usuário selecionado?')">Remover</a>
+                <a href="{{route('usuario-edit', ['id' => $usuario->id]) }}">Alterar</a> |
+                <a href="{{route('usuario-del', ['id' => $usuario->id]) }}" onclick=" return confirm('Deseja mesmo apagar o usuário selecionado?')">Remover</a>
               </td>
             </tr>
             @endforeach
-            
+
           </tbody>
         </table>
       </div>

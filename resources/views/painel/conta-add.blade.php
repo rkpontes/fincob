@@ -19,7 +19,7 @@
       <div class="tile-body">
         <form method="post" action="{{action('ContaController@store')}}">
           @csrf
-          
+
           <input type="hidden" name="id" value="{{$conta->id ?? ''}}" />
           <div class="form-group">
             <label class="control-label">Tipo da Conta</label>
@@ -27,17 +27,17 @@
               <label class="form-check-label">
                 <input class="form-check-input" type="radio" name="tipo[]" value="r" @if(empty($conta)) checked @endif @if(!empty($conta) && $conta->tipo == 'r') checked @endif>Receita
               </label>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <label class="form-check-label">
                 <input class="form-check-input" type="radio" name="tipo[]" value="d" @if(!empty($conta) && $conta->tipo == 'd') checked @endif>Despesa
               </label>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <label class="form-check-label">
                 <input class="form-check-input" type="radio" name="tipo[]" value="t" @if(!empty($conta) && $conta->tipo == 't') checked @endif>Transferência
               </label>
             </div>
           </div>
-          
+
           <div class="form-group">
             <label class="control-label">Título</label>
             <input class="form-control" type="text" name="titulo" value="{{$conta->titulo ?? ''}}" placeholder="Descreva a conta...">
@@ -47,7 +47,7 @@
             <label class="control-label">Vencimento</label>
             <input class="form-control" type="text" id="demoDate" name="vencimento" value="{{$conta->vencimento ?? ''}}" placeholder="DD/MM/YYYY">
           </div>
-          
+
           <div class="form-group">
             <label class="control-label">Valor</label>
             <input class="form-control" type="number" name="valor" value="{{$conta->valor ?? ''}}" placeholder="0,00">
@@ -79,7 +79,7 @@
               @endforeach
             </select>
           </div>
-          
+
           <div class="form-group">
             <div class="form-check">
               <label class="form-check-label">
@@ -127,8 +127,8 @@
               <td>{{date('d/m/Y', strtotime($conta->vencimento))}}</td>
               <td>{{$conta->efetivado ? 'Sim' : 'Não'}}</td>
               <td>
-                <a href="/conta/edit/{{$conta->id}}">Alterar</a> | 
-                <a href='/conta/del/{{$conta->id}}' onclick=" return confirm('Deseja mesmo apagar a conta selecionada?')">Remover</a>
+                <a href="{{route('conta-edit', ['id' => $conta->id]) }}">Alterar</a> |
+                <a href="{{route('conta-del', ['id' => $conta->id]) }}" onclick=" return confirm('Deseja mesmo apagar a conta selecionada?')">Remover</a>
               </td>
             </tr>
             @endforeach

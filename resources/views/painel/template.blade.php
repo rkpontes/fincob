@@ -18,13 +18,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="{{url('/')}}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('public/css/main.css')}}">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="/">Fincob</a>
+    <header class="app-header"><a class="app-header__logo" href="{{route('login')}}">Fincob</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
@@ -87,14 +87,14 @@
     <aside class="app-sidebar">
       <ul class="app-menu">
         <li>
-          <a class="app-menu__item" href="/">
+          <a class="app-menu__item" href="{{route('login')}}">
             <i class="app-menu__icon fa fa-home"></i>
             <span class="app-menu__label">Início</span>
           </a>
         </li>
 
         <li class="treeview">
-          
+
           <a class="app-menu__item" href="#" data-toggle="treeview">
             <i class="app-menu__icon fa fa-file-text"></i>
             <span class="app-menu__label">Cadastrar</span>
@@ -107,20 +107,6 @@
           </ul>
 
         </li>
-        
-        
-        <!--<li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Pages</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item active" href="blank-page.html"><i class="icon fa fa-circle-o"></i> Blank Page</a></li>
-            <li><a class="treeview-item" href="page-login.html"><i class="icon fa fa-circle-o"></i> Login Page</a></li>
-            <li><a class="treeview-item" href="page-lockscreen.html"><i class="icon fa fa-circle-o"></i> Lockscreen Page</a></li>
-            <li><a class="treeview-item" href="page-user.html"><i class="icon fa fa-circle-o"></i> User Page</a></li>
-            <li><a class="treeview-item" href="page-invoice.html"><i class="icon fa fa-circle-o"></i> Invoice Page</a></li>
-            <li><a class="treeview-item" href="page-calendar.html"><i class="icon fa fa-circle-o"></i> Calendar Page</a></li>
-            <li><a class="treeview-item" href="page-mailbox.html"><i class="icon fa fa-circle-o"></i> Mailbox</a></li>
-            <li><a class="treeview-item" href="page-error.html"><i class="icon fa fa-circle-o"></i> Error Page</a></li>
-          </ul>
-        </li>-->
 
       </ul>
     </aside>
@@ -128,13 +114,13 @@
         @yield('content')
     </main>
     <!-- Essential javascripts for application to work-->
-    <script src="{{url('/')}}/js/jquery-3.2.1.min.js"></script>
-    <script src="{{url('/')}}/js/popper.min.js"></script>
-    <script src="{{url('/')}}/js/bootstrap.min.js"></script>
-    <script src="{{url('/')}}/js/main.js"></script>
+    <script src="{{asset('public/js/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{asset('public/js/popper.min.js')}}"></script>
+    <script src="{{asset('public/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('public/js/main.js')}}"></script>
     <!-- The javascript plugin to display page loading on top-->
-    <script src="{{url('/')}}/js/plugins/pace.min.js"></script>
-    <script type="text/javascript" src="{{url('/')}}/js/plugins/bootstrap-datepicker.min.js"></script>
+    <script src="{{asset('public//js/plugins/pace.min.js')}}"></script>
+    <script type="text/javascript" src="asset('public//js/plugins/bootstrap-datepicker.min.js')"></script>
     <!-- Page specific javascripts-->
     <!-- Google analytics script-->
     <script type="text/javascript">

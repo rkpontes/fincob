@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('public/css/main.css')}}">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Login - Fincob</title>
@@ -19,7 +19,7 @@
         <h1>Fincob</h1>
       </div>
       <div class="login-box">
-        <form class="login-form" method="post" action="/login">
+        <form class="login-form" method="post" action="{{action('LoginController@login')}}">
           @csrf
           <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Entrar</h3>
           <div class="form-group">
@@ -42,7 +42,7 @@
           </div>
           <div class="form-group btn-container">
             <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-sign-in fa-lg fa-fw"></i>Entrar</button>
-            <p class="semibold-text login-head"><a href="/novo">Novo Cadastro</a></p>
+            <p class="semibold-text login-head"><a href="{{route('novo')}}">Novo Cadastro</a></p>
           </div>
         </form>
         <form class="forget-form" action="index.html">
